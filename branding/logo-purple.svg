@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" width="300" height="340">
+  <!-- "Dreamy" — Lavender bg, deep purple owl, golden eyes, emerald waves -->
+
+  <rect width="300" height="340" rx="48" fill="#F5F3FF"/>
+
+  <!-- Ear tufts (rounded, cute) -->
+  <path d="M 88,96 Q 74,68 83,50 Q 95,65 112,90 Z" fill="#3B0764"/>
+  <path d="M 212,96 Q 226,68 217,50 Q 205,65 188,90 Z" fill="#3B0764"/>
+
+  <!-- Head -->
+  <circle cx="150" cy="132" r="76" fill="#3B0764"/>
+
+  <!-- Face disc -->
+  <ellipse cx="150" cy="136" rx="57" ry="60" fill="#4C1D95"/>
+
+  <!-- Left eye -->
+  <circle cx="122" cy="122" r="26" fill="#FCD34D"/>
+  <circle cx="122" cy="122" r="16" fill="#1E0035"/>
+  <circle cx="130" cy="114" r="7" fill="white" opacity="0.95"/>
+
+  <!-- Right eye -->
+  <circle cx="178" cy="122" r="26" fill="#FCD34D"/>
+  <circle cx="178" cy="122" r="16" fill="#1E0035"/>
+  <circle cx="186" cy="114" r="7" fill="white" opacity="0.95"/>
+
+  <!-- Blush (cute!) -->
+  <circle cx="98"  cy="150" r="16" fill="#F9A8D4" opacity="0.50"/>
+  <circle cx="202" cy="150" r="16" fill="#F9A8D4" opacity="0.50"/>
+
+  <!-- Open beak -->
+  <path d="M 139,158 Q 150,150 161,158 L 157,168 Q 150,163 143,168 Z" fill="#FCD34D"/>
+  <path d="M 143,171 Q 150,181 157,171 L 154,178 Q 150,182 146,178 Z" fill="#F59E0B"/>
+  <ellipse cx="150" cy="169" rx="9" ry="4" fill="#1E0035" opacity="0.55"/>
+
+  <!-- Sound waves -->
+  <path d="M 167,154 C 180,154 180,176 167,176"
+        stroke="#10B981" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M 173,147 C 193,147 193,183 173,183"
+        stroke="#10B981" stroke-width="3"   fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M 179,140 C 206,140 206,190 179,190"
+        stroke="#10B981" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.42"/>
+
+  <!-- Body -->
+  <ellipse cx="150" cy="232" rx="53" ry="44" fill="#3B0764"/>
+
+  <!-- Cute belly patch -->
+  <ellipse cx="150" cy="238" rx="29" ry="30" fill="#4C1D95" opacity="0.55"/>
+
+  <!-- Wing shading -->
+  <path d="M 108,218 Q 95,233 99,251"  stroke="#2E0650" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M 118,230 Q 105,245 109,260" stroke="#2E0650" stroke-width="9"  fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M 192,218 Q 205,233 201,251" stroke="#2E0650" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M 182,230 Q 195,245 191,260" stroke="#2E0650" stroke-width="9"  fill="none" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Feet -->
+  <line x1="126" y1="268" x2="109" y2="289" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="128" y1="270" x2="120" y2="293" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="131" y1="268" x2="135" y2="291" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="174" y1="268" x2="191" y2="289" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="172" y1="270" x2="180" y2="293" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="169" y1="268" x2="165" y2="291" stroke="#FCD34D" stroke-width="3.5" stroke-linecap="round"/>
+
+  <text x="150" y="328" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="800" letter-spacing="10" fill="#10B981">HOOT</text>
+</svg>
