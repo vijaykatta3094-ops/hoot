@@ -1,4 +1,8 @@
-# voice-to-text
+<p align="center">
+  <img src="logo.png" width="380" alt="Hoot logo"/>
+</p>
+
+# Hoot
 
 > Push-to-talk voice transcription for Linux. Press a hotkey to start recording, press again to stop — transcribed text is instantly pasted into any active window.
 
@@ -41,8 +45,8 @@ Full details: [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md)
 ## Installation
 
 ```bash
-git clone https://github.com/vijay-katta/voice-to-text
-cd voice-to-text
+git clone https://github.com/vijaykatta3094-ops/hoot
+cd hoot
 bash install.sh
 ```
 
@@ -53,11 +57,12 @@ Then follow the printed next-steps (Python env + model download + keyboard short
 ## Project Structure
 
 ```
-voice-to-text/
+hoot/
 ├── README.md          ← you are here
 ├── CHANGELOG.md       ← what changed and when
 ├── ROADMAP.md         ← future plans
 ├── install.sh         ← installer
+├── logo.png           ← project logo
 │
 ├── src/               ← all source scripts
 │   ├── voice-to-text              # main toggle (bash)
@@ -74,6 +79,8 @@ voice-to-text/
 │   ├── ARCHITECTURE.md    ← how it works, design decisions
 │   ├── SETUP.md           ← detailed installation guide
 │   └── TROUBLESHOOTING.md ← common issues
+│
+├── branding/archive/  ← SVG logo explorations (archived)
 │
 └── testing/
     ├── README.md          ← debug checklist
