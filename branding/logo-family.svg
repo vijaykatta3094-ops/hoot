@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" width="320" height="400">
+  <!--
+    "Family" — Mother caressing baby while baby hoots.
+    Dark background, no wordmark, sound waves only.
+    Mother: right side, partially cropped, warm amber eye, wing draped around.
+    Baby:   center-left, big blue eyes, wide-open beak, teal sound waves.
+  -->
+
+  <defs>
+    <!-- Warm amber glow from mother's side -->
+    <radialGradient id="warmth" cx="78%" cy="65%" r="58%">
+      <stop offset="0%"   stop-color="#3d1500" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#0c0a14" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="320" height="400" rx="36" fill="#0c0a14"/>
+  <rect width="320" height="400" rx="36" fill="url(#warmth)"/>
+
+  <!-- ══ MOTHER OWL (right side, partially off-canvas) ══ -->
+
+  <!-- Mother body (large warm mass, right half) -->
+  <ellipse cx="275" cy="305" rx="130" ry="148" fill="#5c2508"/>
+  <ellipse cx="262" cy="292" rx="82"  ry="100" fill="#7c3510" opacity="0.55"/>
+
+  <!-- Mother head (upper-right, mostly off canvas — presence, not portrait) -->
+  <circle cx="292" cy="86" r="102" fill="#5c2508"/>
+  <ellipse cx="272" cy="95"  rx="63" ry="67" fill="#7c3510"/>
+
+  <!-- Mother ear tuft (left one, partially visible) -->
+  <path d="M 258,3 Q 244,-16 254,-36 Q 271,-16 280,12 Z" fill="#4a1e06"/>
+
+  <!-- Mother eye — looking DOWN-LEFT at baby (tender) -->
+  <circle cx="244" cy="90" r="25"  fill="#ffb347"/>
+  <circle cx="244" cy="90" r="16"  fill="#0c0a14"/>
+  <!-- Pupil shifted toward baby -->
+  <circle cx="238" cy="97" r="6.5" fill="white" opacity="0.88"/>
+
+  <!-- Mother beak (small, angled toward baby) -->
+  <path d="M 220,118 Q 210,125 220,132 L 227,129 Q 220,124 227,120 Z" fill="#d97706"/>
+
+  <!-- Mother's left wing arcing over to caress baby -->
+  <!-- Thick base of wing from body -->
+  <path d="M 256,174 Q 224,208 198,244 Q 184,263 180,262"
+        stroke="#4a1e06" stroke-width="30" fill="none" stroke-linecap="round"/>
+  <!-- Wing mid-layer (lighter brown, feather texture) -->
+  <path d="M 253,177 Q 222,211 196,247 Q 182,266 178,265"
+        stroke="#6b3010" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <!-- Wing tip — soft final touch at baby's head -->
+  <path d="M 180,262 Q 174,270 177,280"
+        stroke="#8c4018" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- ══ BABY OWL (nestled center-left, against mother's chest) ══ -->
+
+  <!-- Baby body (small, round, fluffy) -->
+  <ellipse cx="128" cy="320" rx="50" ry="44" fill="#78350f"/>
+  <ellipse cx="128" cy="325" rx="30" ry="27" fill="#92400e" opacity="0.65"/>
+
+  <!-- Baby head (large relative to body — cute proportions) -->
+  <circle cx="128" cy="258" r="56" fill="#78350f"/>
+  <ellipse cx="128" cy="264" rx="41" ry="44" fill="#92400e"/>
+
+  <!-- Baby ear tufts (small, rounded) -->
+  <path d="M 100,210 Q 88,191 97,175 Q 109,189 122,209 Z" fill="#5c2409"/>
+  <path d="M 158,210 Q 170,191 161,175 Q 149,189 136,209 Z" fill="#5c2409"/>
+
+  <!-- Baby eyes — BIG, blue, wide with wonder -->
+  <!-- Left eye -->
+  <circle cx="108" cy="252" r="22" fill="#3b82f6"/>
+  <circle cx="108" cy="252" r="14" fill="#0c0a14"/>
+  <circle cx="114" cy="245" r="6"  fill="white" opacity="0.93"/>
+
+  <!-- Right eye -->
+  <circle cx="150" cy="252" r="22" fill="#3b82f6"/>
+  <circle cx="150" cy="252" r="14" fill="#0c0a14"/>
+  <circle cx="156" cy="245" r="6"  fill="white" opacity="0.93"/>
+
+  <!-- Baby beak — WIDE OPEN (full hoot!) -->
+  <!-- Upper beak -->
+  <path d="M 114,278 Q 128,268 142,278 L 138,290 Q 128,283 118,290 Z" fill="#fbbf24"/>
+  <!-- Lower beak (dropped open) -->
+  <path d="M 117,293 Q 128,307 139,293 L 136,303 Q 128,309 120,303 Z" fill="#d97706"/>
+  <!-- Open mouth interior -->
+  <ellipse cx="128" cy="293" rx="12" ry="9" fill="#150803"/>
+  <!-- Tiny pink tongue -->
+  <ellipse cx="128" cy="300" rx="6" ry="3.5" fill="#f87171" opacity="0.85"/>
+
+  <!-- ══ SOUND WAVES — no text, just noise arcs (going left from beak) ══ -->
+  <!-- Wave 1 (closest, strongest) -->
+  <path d="M 70,272 C 55,265 55,287 70,287"
+        stroke="#00d4b1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Wave 2 -->
+  <path d="M 56,264 C 33,255 33,294 56,294"
+        stroke="#00d4b1" stroke-width="3"   fill="none" stroke-linecap="round" opacity="0.70"/>
+  <!-- Wave 3 (farthest, faintest) -->
+  <path d="M 42,256 C 10,244 10,302 42,302"
+        stroke="#00d4b1" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.38"/>
+
+  <!-- Baby feet / talons -->
+  <line x1="112" y1="360" x2="96"  y2="380" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="114" y1="362" x2="106" y2="384" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="118" y1="360" x2="121" y2="383" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="144" y1="360" x2="160" y2="380" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="142" y1="362" x2="150" y2="384" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="138" y1="360" x2="135" y2="383" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+
+</svg>
