@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" width="300" height="340">
+  <!-- Dark v1 — "Subtle lift": black bg, slate-blue owl (#334155) -->
+
+  <rect width="300" height="340" rx="48" fill="#12121f"/>
+
+  <!-- Ear tufts -->
+  <polygon points="88,98  72,58  108,90" fill="#334155"/>
+  <polygon points="212,98 228,58 192,90" fill="#334155"/>
+
+  <!-- Head -->
+  <circle cx="150" cy="138" r="72" fill="#334155"/>
+
+  <!-- Facial disc -->
+  <ellipse cx="150" cy="142" rx="54" ry="57" fill="#3d5068"/>
+
+  <!-- Left eye -->
+  <circle cx="124" cy="130" r="22" fill="#ffb347"/>
+  <circle cx="124" cy="130" r="14" fill="#12121f"/>
+  <circle cx="130" cy="123" r="5" fill="white" opacity="0.92"/>
+
+  <!-- Right eye -->
+  <circle cx="176" cy="130" r="22" fill="#ffb347"/>
+  <circle cx="176" cy="130" r="14" fill="#12121f"/>
+  <circle cx="182" cy="123" r="5" fill="white" opacity="0.92"/>
+
+  <!-- Upper beak -->
+  <path d="M138 158 Q150 150 162 158 L157 168 Q150 164 143 168 Z" fill="#ffb347"/>
+  <!-- Lower beak -->
+  <path d="M140 168 Q150 178 160 168 L157 176 Q150 182 143 176 Z" fill="#e8960a"/>
+  <!-- Mouth cavity -->
+  <ellipse cx="150" cy="168" rx="10" ry="5" fill="#12121f" opacity="0.6"/>
+
+  <!-- Sound waves -->
+  <path d="M168 158 C178 150, 178 168, 168 176"
+        stroke="#00d4b1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M174 152 C190 140, 190 176, 174 182"
+        stroke="#00d4b1" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M180 145 C202 130, 202 184, 180 188"
+        stroke="#00d4b1" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Body -->
+  <ellipse cx="150" cy="232" rx="54" ry="45" fill="#334155"/>
+
+  <!-- Wing texture -->
+  <path d="M108 220 Q96 232 100 248" stroke="#1e2d3d" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M116 228 Q104 242 108 256" stroke="#1e2d3d" stroke-width="8"  fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M192 220 Q204 232 200 248" stroke="#1e2d3d" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M184 228 Q196 242 192 256" stroke="#1e2d3d" stroke-width="8"  fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Feet -->
+  <line x1="128" y1="270" x2="112" y2="290" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="130" y1="272" x2="122" y2="294" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="133" y1="271" x2="135" y2="293" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="172" y1="270" x2="188" y2="290" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="170" y1="272" x2="178" y2="294" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="167" y1="271" x2="165" y2="293" stroke="#ffb347" stroke-width="3.5" stroke-linecap="round"/>
+
+  <text x="150" y="328" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="800" letter-spacing="10"
+        fill="#00d4b1">HOOT</text>
+</svg>
