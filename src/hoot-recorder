@@ -8,19 +8,19 @@ import queue
 import threading
 import sounddevice as sd
 
-AUDIO_FILE = sys.argv[1] if len(sys.argv) > 1 else "/tmp/voice-to-text-recording.wav"
-READY_FILE = "/tmp/voice-to-text.ready"
+AUDIO_FILE = sys.argv[1] if len(sys.argv) > 1 else "/tmp/hoot-recording.wav"
+READY_FILE = "/tmp/hoot.ready"
 RATE = 16000
 CHANNELS = 1
 
 def main():
-    pidfile = "/tmp/voice-to-text.pid"
+    pidfile = "/tmp/hoot.pid"
     with open(pidfile, "w") as f:
         f.write(str(os.getpid()))
 
     audio_queue = queue.Queue()
     stopped = threading.Event()
-    DROPOUT_FILE = "/tmp/voice-to-text.dropout"
+    DROPOUT_FILE = "/tmp/hoot.dropout"
 
     # BT dropout detection: count consecutive zero-only blocks
     consecutive_zero_blocks = [0]
@@ -31,7 +31,7 @@ def main():
     def callback(indata, frames, time_info, status):
         if status:
             # Log sounddevice errors (overflow, underflow, etc.)
-            with open("/tmp/voice-to-text.log", "a") as f:
+            with open("/tmp/hoot.log", "a") as f:
                 f.write(f"[recorder] sounddevice status error: {status}\n")
         data = bytes(indata)
         # Detect all-zero frames (BT source dropped)

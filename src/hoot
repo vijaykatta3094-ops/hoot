@@ -12,16 +12,16 @@ export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=$XDG_RUNTIME_DIR/bus}"
 
-PIDFILE="/tmp/voice-to-text.pid"
-AUDIO_FILE="/tmp/voice-to-text-recording.wav"
-LOGFILE="/tmp/voice-to-text.log"
+PIDFILE="/tmp/hoot.pid"
+AUDIO_FILE="/tmp/hoot-recording.wav"
+LOGFILE="/tmp/hoot.log"
 VENV="$HOME/faster-whisper-env"
 PYTHON="$VENV/bin/python3"
-BT_STATE_FILE="/tmp/voice-to-text-bt-state"
-SCO_KEEPALIVE_PID_FILE="/tmp/voice-to-text-sco-keepalive.pid"
+BT_STATE_FILE="/tmp/hoot-bt-state"
+SCO_KEEPALIVE_PID_FILE="/tmp/hoot-sco-keepalive.pid"
 
 # Persistent log — survives reboots, one file per day
-PERSIST_LOG_DIR="$HOME/voice-to-text/logs"
+PERSIST_LOG_DIR="$HOME/hoot/logs"
 mkdir -p "$PERSIST_LOG_DIR"
 PERSIST_LOG="$PERSIST_LOG_DIR/$(date '+%Y-%m-%d').log"
 
@@ -37,7 +37,7 @@ log() {
 }
 
 notify() {
-    notify-send -t 2000 "Voice-to-Text" "$1" 2>/dev/null || true
+    notify-send -t 2000 "Hoot" "$1" 2>/dev/null || true
 }
 
 # Switch Bluetooth to HFP (mic) profile and pin it as default source.
@@ -117,15 +117,15 @@ start_recording() {
     setup_audio
     start_sco_keepalive
     log "START recording (engine=$VOICE_ENGINE)"
-    rm -f /tmp/voice-to-text.ready
-    nohup "$PYTHON" "$HOME/bin/voice-recorder-daemon" "$AUDIO_FILE" </dev/null >/dev/null 2>&1 &
+    rm -f /tmp/hoot.ready
+    nohup "$PYTHON" "$HOME/bin/hoot-recorder" "$AUDIO_FILE" </dev/null >/dev/null 2>&1 &
     disown
     # Wait for daemon to signal stream is actually open (up to 3s)
     for i in $(seq 1 30); do
-        [ -f /tmp/voice-to-text.ready ] && break
+        [ -f /tmp/hoot.ready ] && break
         sleep 0.1
     done
-    notify "Recording... Press Ctrl+Space to stop."
+    notify "Recording... Press your shortcut to stop."
     log "Recording PID: $(cat "$PIDFILE" 2>/dev/null || echo 'unknown')"
 }
 
@@ -144,8 +144,8 @@ stop_and_transcribe() {
     fi
 
     # Check if daemon self-stopped due to BT dropout
-    if [ -f /tmp/voice-to-text.dropout ]; then
-        rm -f /tmp/voice-to-text.dropout
+    if [ -f /tmp/hoot.dropout ]; then
+        rm -f /tmp/hoot.dropout
         log "WARNING: BT mic dropped mid-recording — partial audio captured"
         notify "BT mic dropped! Will transcribe what was captured."
     fi
@@ -170,16 +170,16 @@ print(max(abs(s) for s in samples))
     if [ "$MAX_AMP" -lt 100 ] 2>/dev/null; then
         log "ERROR: Recording is silence (max_amp=$MAX_AMP) — mic issue. Source: $(pactl info 2>/dev/null | awk '/Default Source:/{print $3}')"
         notify "Mic not working! Check audio source."
-        cp "$AUDIO_FILE" /tmp/voice-to-text-last.wav 2>/dev/null || true
+        cp "$AUDIO_FILE" /tmp/hoot-last.wav 2>/dev/null || true
         rm -f "$AUDIO_FILE"
         restore_audio
         exit 1
     fi
 
-    TEXT=$("$PYTHON" "$HOME/bin/voice-transcribe-engine" "$AUDIO_FILE" 2>>"$LOGFILE") || true
+    TEXT=$("$PYTHON" "$HOME/bin/hoot-engine" "$AUDIO_FILE" 2>>"$LOGFILE") || true
 
     # Keep a copy of last recording for debugging
-    cp "$AUDIO_FILE" /tmp/voice-to-text-last.wav 2>/dev/null || true
+    cp "$AUDIO_FILE" /tmp/hoot-last.wav 2>/dev/null || true
     rm -f "$AUDIO_FILE"
     log "Transcribed text: [$TEXT]"
 
@@ -221,11 +221,11 @@ log "--- Script invoked ---"
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE" 2>/dev/null)" 2>/dev/null; then
     # Daemon is alive — normal stop
     stop_and_transcribe
-elif [ -f "$PIDFILE" ] && { [ -f /tmp/voice-to-text.dropout ] || [ -f "$AUDIO_FILE" ]; }; then
+elif [ -f "$PIDFILE" ] && { [ -f /tmp/hoot.dropout ] || [ -f "$AUDIO_FILE" ]; }; then
     # Daemon died early (BT dropout) but left audio — transcribe what we captured
     log "Daemon died early (BT dropout?), transcribing partial audio"
     stop_and_transcribe
 else
-    rm -f "$PIDFILE" "$AUDIO_FILE" /tmp/voice-to-text.ready /tmp/voice-to-text.dropout
+    rm -f "$PIDFILE" "$AUDIO_FILE" /tmp/hoot.ready /tmp/hoot.dropout
     start_recording
 fi

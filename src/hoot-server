@@ -15,8 +15,8 @@ for name in ['nemo', 'pytorch_lightning', 'nemo.collections', 'nemo.utils',
 os.environ['NEMO_LOG_LEVEL'] = 'CRITICAL'
 os.environ['HYDRA_FULL_ERROR'] = '0'
 
-SOCKET_PATH = "/tmp/voice-transcribe.sock"
-PID_FILE = "/tmp/voice-transcribe-server.pid"
+SOCKET_PATH = "/tmp/hoot-server.sock"
+PID_FILE = "/tmp/hoot-server.pid"
 
 def load_parakeet():
     import nemo.utils.nemo_logging
