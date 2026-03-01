@@ -1,0 +1,8 @@
+{
+  "name": "Hoot Mic Indicator",
+  "description": "Shows a mic icon in the top panel. Grey = idle, red = recording. Click to toggle.",
+  "uuid": "hoot@hoot",
+  "shell-version": ["45", "46", "47"],
+  "version": 1,
+  "url": "https://github.com/vijaykatta3094-ops/hoot"
+}

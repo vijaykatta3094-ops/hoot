@@ -125,7 +125,8 @@ start_recording() {
         [ -f /tmp/hoot.ready ] && break
         sleep 0.1
     done
-    notify "Recording... Press your shortcut to stop."
+    # Signal panel indicator: recording started
+    echo 'recording' > /tmp/hoot.state
     log "Recording PID: $(cat "$PIDFILE" 2>/dev/null || echo 'unknown')"
 }
 
@@ -143,16 +144,19 @@ stop_and_transcribe() {
         sleep 0.3
     fi
 
+    # Clear panel indicator immediately (we're processing now)
+    rm -f /tmp/hoot.state
+
     # Check if daemon self-stopped due to BT dropout
     if [ -f /tmp/hoot.dropout ]; then
         rm -f /tmp/hoot.dropout
         log "WARNING: BT mic dropped mid-recording — partial audio captured"
-        notify "BT mic dropped! Will transcribe what was captured."
+        notify "BT mic dropped! Transcribing partial audio."
     fi
 
     if [ ! -f "$AUDIO_FILE" ] || [ ! -s "$AUDIO_FILE" ]; then
         log "ERROR: No audio file or empty"
-        notify "No audio recorded."
+        notify "Hoot: no audio recorded."
         restore_audio
         exit 1
     fi
@@ -169,7 +173,7 @@ print(max(abs(s) for s in samples))
 " 2>/dev/null || echo "0")
     if [ "$MAX_AMP" -lt 100 ] 2>/dev/null; then
         log "ERROR: Recording is silence (max_amp=$MAX_AMP) — mic issue. Source: $(pactl info 2>/dev/null | awk '/Default Source:/{print $3}')"
-        notify "Mic not working! Check audio source."
+        notify "Hoot: mic not working — check audio source."
         cp "$AUDIO_FILE" /tmp/hoot-last.wav 2>/dev/null || true
         rm -f "$AUDIO_FILE"
         restore_audio
@@ -184,7 +188,6 @@ print(max(abs(s) for s in samples))
     log "Transcribed text: [$TEXT]"
 
     if [ -z "$TEXT" ]; then
-        notify "No speech detected."
         log "No speech detected"
         restore_audio
         exit 0
@@ -212,7 +215,6 @@ print(max(abs(s) for s in samples))
     log "Clipboard restored"
 
     restore_audio
-    notify "Done: $TEXT"
     log "DONE"
 }
 
